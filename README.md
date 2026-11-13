@@ -2,7 +2,7 @@
 
 ##  Project Overview
 
-This project aims to predict the presence of heart disease in a patient based on medical attributes using machine learning algorithms. Early prediction can help in timely diagnosis and treatment.
+This project aims to predict the presence of heart disease in a patient based on medical attributes using machine learning algorithms. This is a small educational dataset comparison, not a diagnostic tool or a clinically validated model.
 
 ---
 
@@ -60,33 +60,38 @@ The following models were implemented and compared:
 2. Data Preprocessing
 
    * Handling missing values
-   * Feature scaling using StandardScaler
 3. Exploratory Data Analysis (EDA)
 4. Train-Test Split (80:20)
-5. Model Training
-6. Model Evaluation
+5. Feature scaling using StandardScaler fitted on training data only
+6. Model Training
+7. Model Evaluation
 
 ---
 
 ## Model Performance
 
-* Logistic Regression: ~88% accuracy
-* Random Forest: High performance (~85–90%)
-* KNN & SVM: Compared for evaluation
+Test accuracy on the 80:20 split (`random_state=42`, features scaled with StandardScaler fitted on the training set only):
 
-### Evaluation Metrics:
+| Model | Test Accuracy |
+|---|---|
+| K-Nearest Neighbors | 90.2% |
+| Support Vector Machine | 86.9% |
+| Logistic Regression | 85.2% |
+| Random Forest | 83.6% |
 
-* Accuracy
-* Confusion Matrix
-* Precision, Recall, F1-score
+The notebook runs end to end (`model.ipynb`): preprocessing, train/test split, scaling, training and comparison, with saved outputs.
+
+### Limits
+
+The notebook reports accuracy only on 61 test records from one fixed split. It does not yet report cross-validation, sensitivity/specificity, calibration or external validation. Results from this small split should not be treated as clinical evidence.
 
 ---
 
 ##  Key Insights
 
-* Feature scaling significantly improved model performance
-* Logistic Regression performed well as a baseline model
-* Random Forest provided strong overall accuracy
+* KNN achieved the highest test accuracy (90.2%) on this dataset
+* StandardScaler is fitted only on training data, then applied to the test data
+* Logistic Regression is a solid, interpretable baseline at 85.2%
 
 
 ---
@@ -96,13 +101,13 @@ The following models were implemented and compared:
 1. Clone the repository
 
 ```
-git clone https://github.com/yourusername/heart-disease-prediction.git
+git clone https://github.com/yuvasree023/Heart_disease_prediction.git
 ```
 
 2. Navigate to the project folder
 
 ```
-cd heart-disease-prediction
+cd Heart_disease_prediction
 ```
 
 3. Install dependencies
@@ -111,7 +116,7 @@ cd heart-disease-prediction
 pip install -r requirements.txt
 ```
 
-4. Run the notebook or script
+4. Open `model.ipynb` in Jupyter and run all cells from the repository root. A clean run is saved in the notebook.
 
 ---
 
@@ -126,7 +131,7 @@ pip install -r requirements.txt
 
 ##  Conclusion
 
-This project demonstrates how machine learning can be applied to healthcare for predicting heart disease. With proper preprocessing and model selection, reliable predictions can be achieved.
+This project demonstrates how machine learning can be applied to healthcare for predicting heart disease. The results are an educational comparison on a small dataset, not evidence of clinical reliability.
 
 ---
 
